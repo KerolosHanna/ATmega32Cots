@@ -18,9 +18,6 @@
 #include <util/delay.h>
 
 void LCD_vdInit(){
-	DIO_u8SetPinDirection(LCD_CTRL_PORT, LCD_RS_PIN, DIO_u8PIN_OUTPUT);
-	DIO_u8SetPinDirection(LCD_CTRL_PORT, LCD_RW_PIN, DIO_u8PIN_OUTPUT);
-	DIO_u8SetPinDirection(LCD_CTRL_PORT, LCD_EN_PIN, DIO_u8PIN_OUTPUT);
 #if LCD_CONNECTION_TYPE == LCD_8BIT
 	DIO_u8SetPortDirection(LCD_DATA_PORT, DIO_u8PORT_OUTPUT);
 	_delay_ms(40);
@@ -28,10 +25,6 @@ void LCD_vdInit(){
 #endif
 
 #if LCD_CONNECTION_TYPE == LCD_4BIT
-	DIO_u8SetPinDirection(LCD_DATA_PORT, LCD_D4_PIN, DIO_u8PIN_OUTPUT);
-	DIO_u8SetPinDirection(LCD_DATA_PORT, LCD_D5_PIN, DIO_u8PIN_OUTPUT);
-	DIO_u8SetPinDirection(LCD_DATA_PORT, LCD_D6_PIN, DIO_u8PIN_OUTPUT);
-	DIO_u8SetPinDirection(LCD_DATA_PORT, LCD_D7_PIN, DIO_u8PIN_OUTPUT);
 	_delay_ms(40);
 	LCD_u8SendCommand( LCD_4BIT_MODE );
 	LCD_u8SendCommand( LCD_4BIT_2LINES );
