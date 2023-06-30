@@ -1,8 +1,8 @@
 @echo off
 setlocal
 
-set Driver=LCD
-set Layer=HAL
+set Driver=PORT
+set Layer=MCAL
 set Author=Kerolos Hanna
 set Email=Kerolos.Hanna@hotmail.com
 
@@ -82,9 +82,9 @@ REM Create the file with multiple lines
 	echo /*****************************************************************/
 	echo /*****************************************************************/
 	echo.
-	echo #include "E:\Embeded Systems\ATmega 32\COTs\LIB\STD_TYPES.h"
-	echo #include "E:\Embeded Systems\ATmega 32\COTs\LIB\BIT_MATH.h"
-	echo #include "E:\Embeded Systems\ATmega 32\COTs\MCAL\DIO\DIO_interface.h"
+	echo #include "..\..\LIB\STD_TYPES.h"
+	echo #include "..\..\LIB\BIT_MATH.h"
+	echo #include "..\..\MCAL\DIO\DIO_interface.h"
 	echo.
 	echo #include "%Driver%_interface.h"
 	echo #include "%Driver%_config.h"
@@ -104,9 +104,9 @@ REM Create the file with multiple lines
 	echo /*****************************************************************/
 	echo /*****************************************************************/
 	echo.
-	echo #include "E:\Embeded Systems\ATmega 32\COTs\LIB\STD_TYPES.h"
-	echo #include "E:\Embeded Systems\ATmega 32\COTs\LIB\BIT_MATH.h"
-	echo #include "E:\Embeded Systems\ATmega 32\COTs\MCAL\DIO\DIO_interface.h"
+	echo #include "..\..\LIB\STD_TYPES.h"
+	echo #include "..\..\LIB\BIT_MATH.h"
+	echo #include "..\..\MCAL\DIO\DIO_interface.h"
 	echo.
 	echo #include "%Driver%_interface.h"
 	echo #include "%Driver%_config.h"
