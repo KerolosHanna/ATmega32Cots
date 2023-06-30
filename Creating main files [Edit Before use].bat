@@ -69,7 +69,7 @@ REM Create the file with multiple lines
 	echo #endif
 ) > %FILE_NAME%
 
-set FILE_NAME=%Driver%_program.c
+if %Layer%==HAL set FILE_NAME=%Driver%_program.c
 REM Create the file with multiple lines
 (
 	echo /*****************************************************************/
