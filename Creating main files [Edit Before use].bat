@@ -86,9 +86,9 @@ REM Create the file with multiple lines
 	echo #include "..\..\LIB\BIT_MATH.h"
 	echo #include "..\..\MCAL\DIO\DIO_interface.h"
 	echo.
-	echo #include "%Driver%_interface.h"
 	echo #include "%Driver%_config.h"
 	echo #include "%Driver%_private.h"
+	echo #include "%Driver%_interface.h"
 ) > %FILE_NAME%
 
 if %Layer%==MCAL set FILE_NAME=%Driver%_program.c
@@ -108,10 +108,10 @@ REM Create the file with multiple lines
 	echo #include "..\..\LIB\BIT_MATH.h"
 	echo #include "..\..\MCAL\DIO\DIO_interface.h"
 	echo.
-	echo #include "%Driver%_interface.h"
+	echo #include "%Driver%_register.h"
 	echo #include "%Driver%_config.h"
 	echo #include "%Driver%_private.h"
-	echo #include "%Driver%_register.h"
+	echo #include "%Driver%_interface.h"
 ) > %FILE_NAME%
 
 
