@@ -27,20 +27,20 @@ uint8 KEYPAD_u8GetKey(){
 	for(Local_u8ColumnIndex = 0 ; Local_u8ColumnIndex < KEYPAD_COLUMN_NUMBER ; Local_u8ColumnIndex++){
 
 		/*Activate the current column*/
-		DIO_u8SetPinValue(KEYPAD_PORT, Local_u8ColumnArray[Local_u8ColumnIndex], DIO_u8PIN_LOW);
+		DIO_u8SetPinValue(KEYPAD_COLUMN_PORT, Local_u8ColumnArray[Local_u8ColumnIndex], DIO_u8PIN_LOW);
 
 		for(Local_u8RowIndex = 0 ; Local_u8RowIndex < KEYPAD_ROW_NUMBER ; Local_u8RowIndex ++){
-			DIO_u8GetPinValue(KEYPAD_PORT, Local_u8RowArray[Local_u8RowIndex], &Local_u8PinState);
+			DIO_u8GetPinValue(KEYPAD_ROW_PORT, Local_u8RowArray[Local_u8RowIndex], &Local_u8PinState);
 
 			if(Local_u8PinState == KEYPAD_KEY_PRESSED){
 				Local_u8PressedKey = Local_u8KeyArray[Local_u8RowIndex][Local_u8ColumnIndex];
 				while(Local_u8PinState == KEYPAD_KEY_PRESSED){
-					DIO_u8GetPinValue(KEYPAD_PORT, Local_u8RowArray[Local_u8RowIndex], &Local_u8PinState);
+					DIO_u8GetPinValue(KEYPAD_ROW_PORT, Local_u8RowArray[Local_u8RowIndex], &Local_u8PinState);
 				}
 			}
 		}
 		/*Deactivate the current column*/
-		DIO_u8SetPinValue(KEYPAD_PORT, Local_u8ColumnArray[Local_u8ColumnIndex], DIO_u8PIN_HIGH);
+		DIO_u8SetPinValue(KEYPAD_COLUMN_PORT, Local_u8ColumnArray[Local_u8ColumnIndex], DIO_u8PIN_HIGH);
 	}
 	return Local_u8PressedKey;
 }
