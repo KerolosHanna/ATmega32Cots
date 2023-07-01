@@ -11,6 +11,9 @@
 #ifndef KEYPAD_INTERFACE_H
 #define KEYPAD_INTERFACE_H
 
+/*The Default Value of the key*/
+#define KEYPAD_NO_KEY_PRESSED	0xFF
+
 uint8 KEYPAD_u8GetKey();
 
 #endif

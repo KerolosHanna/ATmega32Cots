@@ -28,10 +28,6 @@
 /*The Keypad Characters*/
 #define KEYPAD_VALUES			{{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}, {'*', '0', '#'}}
 
-/*The Default Value of the key*/
-#define KEYPAD_NO_KEY_PRESSED	0xFF
-
-
 #define KEYPAD_KEY_PRESSED		0
 #define KEYPAD_KEY_UNPRESSED	1
 
