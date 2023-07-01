@@ -106,7 +106,6 @@ REM Create the file with multiple lines
 	echo.
 	echo #include "..\..\LIB\STD_TYPES.h"
 	echo #include "..\..\LIB\BIT_MATH.h"
-	echo #include "..\..\MCAL\DIO\DIO_interface.h"
 	echo.
 	echo #include "%Driver%_register.h"
 	echo #include "%Driver%_config.h"
