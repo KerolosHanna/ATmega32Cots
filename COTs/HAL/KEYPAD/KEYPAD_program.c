@@ -15,7 +15,7 @@
 #include "KEYPAD_config.h"
 #include "KEYPAD_interface.h"
 #include "KEYPAD_private.h"
-#include <util/delay.h>
+
 
 uint8 KEYPAD_u8GetKey(){
 	uint8 Local_u8PressedKey = KEYPAD_NO_KEY_PRESSED, Local_u8PinState = KEYPAD_KEY_UNPRESSED;
