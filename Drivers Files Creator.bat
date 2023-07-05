@@ -60,7 +60,7 @@ set Layer=!Layer:x=X!
 set Layer=!Layer:y=Y!
 set Layer=!Layer:z=Z!
 
-set Author=Kerolos Hanna"
+set Author=Kerolos Hanna
 set Email=Kerolos.Hanna@hotmail.com
 
 
