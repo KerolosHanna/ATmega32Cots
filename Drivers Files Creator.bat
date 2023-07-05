@@ -86,10 +86,12 @@ REM Create the file with multiple lines
 	echo.
 	echo #include "..\..\LIB\STD_TYPES.h"
 	echo #include "..\..\LIB\BIT_MATH.h"
+	#include "..\..\MCAL\DIO\DIO_interface.h"
 	echo.
 	echo #include "%Driver%_config.h"
 	echo #include "%Driver%_private.h"
 	echo #include "%Driver%_interface.h"
+	#include <util/delay.h>
 ) > COTs\%Layer%\%Driver%\%FILE_NAME1%
 
 if %Layer%==MCAL set FILE_NAME2=%Driver%_program.c
@@ -107,11 +109,13 @@ REM Create the file with multiple lines
 	echo.
 	echo #include "..\..\LIB\STD_TYPES.h"
 	echo #include "..\..\LIB\BIT_MATH.h"
+	#include "..\..\MCAL\DIO\DIO_interface.h"
 	echo.
 	echo #include "%Driver%_register.h"
 	echo #include "%Driver%_config.h"
 	echo #include "%Driver%_private.h"
 	echo #include "%Driver%_interface.h"
+	#include <util/delay.h>
 ) > COTs\%Layer%\%Driver%\%FILE_NAME2%
 
 REM Creating the private.h file
