@@ -60,7 +60,7 @@ set Layer=!Layer:x=X!
 set Layer=!Layer:y=Y!
 set Layer=!Layer:z=Z!
 
-set Author=Kerolos Hanna
+set Author=Kerolos Hanna"
 set Email=Kerolos.Hanna@hotmail.com
 
 
@@ -75,47 +75,35 @@ if %Layer%==HAL set FILE_NAME1=%Driver%_program.c
 REM Create the file with multiple lines
 (
 	echo /*****************************************************************/
-	echo /*****************************************************************/
-	echo /************		Author: %Author%			**************/
-	echo /************		%Email%		**************/
-	echo /************		Layer:	%Layer%					**************/
-	echo /************		SWC:	%Driver%						**************/
-	echo /************		version: 1.00					**************/
+Expand All
+	@@ -19,15 +84,15 @@ REM Create the file with multiple lines
 	echo /*****************************************************************/
 	echo /*****************************************************************/
 	echo.
 	echo #include "..\..\LIB\STD_TYPES.h"
 	echo #include "..\..\LIB\BIT_MATH.h"
-	#include "..\..\MCAL\DIO\DIO_interface.h"
 	echo.
 	echo #include "%Driver%_config.h"
 	echo #include "%Driver%_private.h"
 	echo #include "%Driver%_interface.h"
-	#include <util/delay.h>
 ) > COTs\%Layer%\%Driver%\%FILE_NAME1%
 
 if %Layer%==MCAL set FILE_NAME2=%Driver%_program.c
 REM Create the file with multiple lines
 (
 	echo /*****************************************************************/
-	echo /*****************************************************************/
-	echo /************		Author: %Author%			**************/
-	echo /************		%Email%		**************/
-	echo /************		Layer:	%Layer%					**************/
-	echo /************		SWC:	%Driver%						**************/
-	echo /************		version: 1.00					**************/
+Expand All
+	@@ -40,16 +105,17 @@ REM Create the file with multiple lines
 	echo /*****************************************************************/
 	echo /*****************************************************************/
 	echo.
 	echo #include "..\..\LIB\STD_TYPES.h"
 	echo #include "..\..\LIB\BIT_MATH.h"
-	#include "..\..\MCAL\DIO\DIO_interface.h"
 	echo.
 	echo #include "%Driver%_register.h"
 	echo #include "%Driver%_config.h"
 	echo #include "%Driver%_private.h"
 	echo #include "%Driver%_interface.h"
-	#include <util/delay.h>
 ) > COTs\%Layer%\%Driver%\%FILE_NAME2%
 
 REM Creating the private.h file
@@ -123,17 +111,8 @@ set FILE_NAME3=%Driver%_private.h
 (
 	echo /*****************************************************************/
 	echo /*****************************************************************/
-	echo /************		Author: %Author%			**************/
-	echo /************		%Email%		**************/
-	echo /************		Layer:	%Layer%					**************/
-	echo /************		SWC:	%Driver%						**************/
-	echo /************		version: 1.00					**************/
-	echo /*****************************************************************/
-	echo /*****************************************************************/
-	echo.
-	echo #ifndef %Driver%_PRIVATE_H
-	echo #define %Driver%_PRIVATE_H
-	echo.
+Expand All
+	@@ -67,10 +133,10 @@ REM Create the file with multiple lines
 	echo.
 	echo.
 	echo #endif
@@ -144,11 +123,8 @@ set FILE_NAME4=%Driver%_config.h
 (
 	echo /*****************************************************************/
 	echo /*****************************************************************/
-	echo /************		Author: %Author%			**************/
-	echo /************		%Email%		**************/
-	echo /************		Layer:	%Layer%					**************/
-	echo /************		SWC:	%Driver%						**************/
-	echo /************		version: 1.00					**************/
+Expand All
+	@@ -82,17 +148,16 @@ REM Create the file with multiple lines
 	echo /*****************************************************************/
 	echo /*****************************************************************/
 	echo.
@@ -165,11 +141,8 @@ set FILE_NAME5=%Driver%_interface.h
 (
 	echo /*****************************************************************/
 	echo /*****************************************************************/
-	echo /************		Author: %Author%			**************/
-	echo /************		%Email%		**************/
-	echo /************		Layer:	%Layer%					**************/
-	echo /************		SWC:	%Driver%						**************/
-	echo /************		version: 1.00					**************/
+Expand All
+	@@ -104,19 +169,16 @@ REM Create the file with multiple lines
 	echo /*****************************************************************/
 	echo /*****************************************************************/
 	echo.
@@ -186,17 +159,8 @@ if %Layer%==MCAL set FILE_NAME6=%Driver%_register.h
 (
 	echo /*****************************************************************/
 	echo /*****************************************************************/
-	echo /************		Author: %Author%			**************/
-	echo /************		%Email%		**************/
-	echo /************		Layer:	%Layer%					**************/
-	echo /************		SWC:	%Driver%						**************/
-	echo /************		version: 1.00					**************/
-	echo /*****************************************************************/
-	echo /*****************************************************************/
-	echo.
-	echo #ifndef %Driver%_REGISTER_H
-	echo #define %Driver%_REGISTER_H
-	echo.
+Expand All
+	@@ -134,8 +196,7 @@ REM Create the file with multiple lines
 	echo.
 	echo.
 	echo #endif
