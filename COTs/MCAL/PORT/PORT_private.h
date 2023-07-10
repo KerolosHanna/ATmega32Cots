@@ -11,15 +11,6 @@
 #ifndef PORT_PRIVATE_H
 #define PORT_PRIVATE_H
 
-#define INPUT		0
-#define OUTPUT		1
-
-#define PULLUP		0
-#define PULLDOWN	1
-
-#define LOW			0
-#define HIGH		1
-
 #define CONC(b7, b6, b5, b4, b3, b2, b1, b0)	CONC_HELPER(b7,b6,b5,b4,b3,b2,b1,b0)
 #define CONC_HELPER(b7, b6, b5, b4, b3, b2, b1, b0)	0b##b7##b6##b5##b4##b3##b2##b1##b0
 

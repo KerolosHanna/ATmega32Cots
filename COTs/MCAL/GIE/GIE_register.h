@@ -3,23 +3,15 @@
 /************		Author: Kerolos Hanna			**************/
 /************		Kerolos.Hanna@hotmail.com		**************/
 /************		Layer:	MCAL					**************/
-/************		SWC:	PORT					**************/
+/************		SWC:	GIE						**************/
 /************		version: 1.00					**************/
 /*****************************************************************/
 /*****************************************************************/
 
-#ifndef PORT_INTERFACE_H
-#define PORT_INTERFACE_H
+#ifndef GIE_REGISTER_H
+#define GIE_REGISTER_H
 
-void PORT_vdInit();
-
-#define INPUT		0
-#define OUTPUT		1
-
-#define PULLUP		0
-#define PULLDOWN	1
-
-#define LOW			0
-#define HIGH		1
+#define SREG			*( (volatile uint8 *) 0x5F )	//AVR Status Register
+#define SREG_I			7								//General Interrupt PIN
 
 #endif
