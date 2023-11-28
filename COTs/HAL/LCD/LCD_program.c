@@ -132,7 +132,7 @@ uint8 LCD_u8SendData(uint8 Copy_u8Data){
 }
 
 
-uint8 lCD_u8SendString(const uint8* copy_u8String){
+uint8 LCD_u8SendString(const uint8* copy_u8String){
 	uint8 Local_u8ErrorState = 0;
 	/*Setting the Loop COunter*/
 	uint8 LoopCounter = 0;
@@ -158,7 +158,7 @@ uint8 LCD_u8GoToXnY(uint8 Copy_u8X, uint8 Copy_u8Y){
 	uint8 CursorAddress = 0;
 	/*Calculating the address value*/
 	/*the first line starts at 0x00*/
-	if		(Copy_u8Y == 0){CursorAddress = Copy_u8X;}
+	if		(Copy_u8Y == 0){CursorAddress = LCD_BEGIN_AT_FIRST_ROW + Copy_u8X;}
 	/*the second line starts at 0x40*/
 	else if	(Copy_u8Y == 1){CursorAddress = LCD_BEGIN_AT_SECOND_ROW + Copy_u8X;}
 	else{Local_u8ErrorState = 1;}
@@ -172,7 +172,7 @@ uint8 LCD_u8GoToXnY(uint8 Copy_u8X, uint8 Copy_u8Y){
 uint8 LCD_u8CreateShape(uint8* Copy_u8ShapeArray, uint8 Copy_u8ShapeNumber){
 	uint8 Local_u8ErrorState = 0;
 
-	/*checking if the memory location*/
+	/*checking the memory location*/
 	if(Copy_u8ShapeNumber <= 7){
 		/*accessing the CGRAM address*/
 		LCD_u8SendCommand((Copy_u8ShapeNumber * LCD_CHAR_SIZE) + LCD_CGRAM_BASE_ADDRESS);

@@ -11,10 +11,10 @@
 #ifndef _BIT_MATH_H
 #define _BIT_MATH_H
 
-#define SET_BIT(VAR,BITNO) (VAR) |=  (1 << (BITNO))
-#define CLR_BIT(VAR,BITNO) (VAR) &= ~(1 << (BITNO))
-#define TOG_BIT(VAR,BITNO) (VAR) ^=  (1 << (BITNO))
-#define GET_BIT(VAR,BITNO) (((VAR) >> (BITNO)) & 0x01)
+#define SET_BIT(VAR,BIT_NO) (VAR) |=  (1 << (BIT_NO))
+#define CLR_BIT(VAR,BIT_NO) (VAR) &= ~(1 << (BIT_NO))
+#define TOG_BIT(VAR,BIT_NO) (VAR) ^=  (1 << (BIT_NO))
+#define GET_BIT(VAR,BIT_NO) (((VAR) >> (BIT_NO)) & 0x01)
 
 
 #endif

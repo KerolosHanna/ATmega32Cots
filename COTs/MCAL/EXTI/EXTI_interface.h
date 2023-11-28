@@ -24,6 +24,11 @@ void EXTI_vdInt0Init();
 void EXTI_vdInt1Init();
 void EXTI_vdInt2Init();
 
-void EXTI_vdInerruptType(uint8 Copy_IntPin, uint8 Copy_IntType);
+uint8 EXTI_u8SetPeripheral( uint8 Copy_u8Int, uint8 Copy_u8Status );
+uint8 EXTI_u8InerruptType( uint8 Copy_u8Int, uint8 Copy_u8IntType);
+
+uint8 EXTI_u8Int0SetCallBack(void (*Copy_pvdInt0Func) (void));
+uint8 EXTI_u8Int1SetCallBack(void (*Copy_pvdInt1Func) (void));
+uint8 EXTI_u8Int2SetCallBack(void (*Copy_pvdInt2Func) (void));
 
 #endif

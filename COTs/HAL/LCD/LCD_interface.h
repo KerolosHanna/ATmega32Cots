@@ -15,7 +15,7 @@ void LCD_vdInit();
 
 uint8 LCD_u8SendCommand(uint8 Copy_u8Command);
 uint8 LCD_u8SendData(uint8 Copy_u8Data);
-uint8 lCD_u8SendString(const uint8* copy_u8String);
+uint8 LCD_u8SendString(const uint8* copy_u8String);
 uint8 LCD_u8GoToXnY(uint8 Copy_u8X, uint8 Copy_u8Y);
 
 uint8 LCD_u8CreateShape(uint8* Copy_u8ShapeArray, uint8 Copy_u8ShapeNumber);

@@ -8,4 +8,12 @@
 /*****************************************************************/
 /*****************************************************************/
 
+#ifndef EXTI_PRIVATE_H
+#define EXTI_PRIVATE_H
 
+#define LOW_LEVEL				1
+#define ON_CHANGE				2
+#define FALLING_EDGE			3
+#define RAISING_EDGE			4
+
+#endif
