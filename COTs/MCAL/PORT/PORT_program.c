@@ -10,9 +10,9 @@
 
 #include "..\..\LIB\STD_TYPES.h"
 
+#include "PORT_interface.h"
 #include "PORT_config.h"
 #include "PORT_private.h"
-#include "PORT_interface.h"
 #include "PORT_register.h"
 
 void PORT_vdInit(){

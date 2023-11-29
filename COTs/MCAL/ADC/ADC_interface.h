@@ -12,8 +12,8 @@
 
 void ADC_vdInit();
 
-uint8 ADC_u16SynchronousConversion( uint8 *Copy_pu8Reading, uint8 Copy_u8Channel );
-uint8 ADC_u16AsynchronousConversion( uint8 *Copy_pu8Reading, uint8 Copy_u8Channel );
+uint8 ADC_u8SynchronousConversion( uint16 *Copy_pu16Reading, uint8 Copy_u8Channel );
+uint8 ADC_u8AsynchronousConversion( uint16 *Copy_pu16Reading, void (*Copy_pvdNotificationFunc) (void), uint8 Copy_u8Channel );
 
 void ADC_vdIntISR();
 

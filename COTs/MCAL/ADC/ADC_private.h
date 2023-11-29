@@ -10,6 +10,9 @@
 #ifndef ADC_PRIVATE_H
 #define ADC_PRIVATE_H
 
+#define IDLE										1
+#define BUSY										2
+
 /*ADC Masks*/
 #define ADC_REF_MASK								0x3F //0b00111111
 #define ADC_PRESCALER_MASK							0xF8 //0b11111000
