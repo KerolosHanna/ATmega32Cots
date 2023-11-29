@@ -34,5 +34,5 @@ typedef double					f64;
 #define OK						1
 #define NOK						2
 #define NULL_POINTER			3
-
+#define BUSY_FUNCTION			4
 #endif
