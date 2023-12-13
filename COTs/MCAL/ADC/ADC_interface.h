@@ -13,6 +13,7 @@
 void ADC_vdInit();
 
 uint8 ADC_u8SynchronousConversion( uint16 *Copy_pu16Reading, uint8 Copy_u8Channel );
+//Don't forget to Enable the Global Interrupt
 uint8 ADC_u8AsynchronousConversion( uint16 *Copy_pu16Reading, void (*Copy_pvdNotificationFunc) (void), uint8 Copy_u8Channel );
 
 void ADC_vdIntISR();
