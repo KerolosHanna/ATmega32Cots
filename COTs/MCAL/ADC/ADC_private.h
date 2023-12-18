@@ -13,6 +13,9 @@
 #define IDLE										1
 #define BUSY										2
 
+#define SINGLE										1
+#define CHAIN										2
+
 /*ADC Masks*/
 #define ADC_REF_MASK								0x3F //0b00111111
 #define ADC_PRESCALER_MASK							0xF8 //0b11111000
@@ -58,4 +61,6 @@
 #define ADC_TRIGGER_TIMER_COUNTER1_OVERFLOW         0xDF //0b11011111
 #define ADC_TRIGGER_TIMER_COUNTER1_CAPTURE_EVENT    0xFF //0b11111111
 
+void ADC_AsynchronousConversionISR();
+void ADC_ChainConversionISR();
 #endif

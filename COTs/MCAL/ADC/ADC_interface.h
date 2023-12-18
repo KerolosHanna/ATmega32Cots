@@ -10,13 +10,21 @@
 #ifndef ADC_INTERFACE_H
 #define ADC_INTERFACE_H
 
+typedef struct{
+	uint8 *Channels;
+	uint8 Size;
+	uint16 *ResultArr;
+	void (* NotificationFunction )(void);
+}ADC_Chain_t;
+
 void ADC_vdInit();
 
 uint8 ADC_u8SynchronousConversion( uint16 *Copy_pu16Reading, uint8 Copy_u8Channel );
-//Don't forget to Enable the Global Interrupt
+
+//Don't forget to Enable the Global Interrupt to use this function
 uint8 ADC_u8AsynchronousConversion( uint16 *Copy_pu16Reading, void (*Copy_pvdNotificationFunc) (void), uint8 Copy_u8Channel );
 
-void ADC_vdIntISR();
+uint8 ADC_u8ChainConversion(ADC_Chain_t* CopyStruct);
 
 #define MUX_SINGLE_ADC0								   0
 #define MUX_SINGLE_ADC1                                1
