@@ -13,10 +13,12 @@
 typedef struct{
 	uint8 Timer;
 	uint8 TimerMode;
+	uint8 OutputMode;
 	uint8 OCR;
 	uint8 PreScaler;
+	void (*vdCallBackFunction)(void);
 }TIMER_t;
-
+void TIMER_vdSetOCR(uint8 Copy_u8OCRValue);
 #define TIMER0	1
 #define TIMER1	2
 #define TIMER2	3
@@ -27,11 +29,11 @@ typedef struct{
 #define TIMER_MODE_FAST_PWM						0b01001000
 #define TIMER_MODE_CORRECT_PWM					0b01000000
 
-#define TIMER_COMPARE_MASK						0b11001111
-#define TIMER_COMPARE_NORMAL        			0b00000000
-#define TIMER_COMPARE_TOGGLE        			0b00010000
-#define TIMER_COMPARE_CLEAR         			0b00100000
-#define TIMER_COMPARE_SET          				0b00110000
+#define TIMER_OUTPUT_MASK						0b11001111
+#define TIMER_OUTPUT_NORMAL    	    			0b00000000
+#define TIMER_OUTPUT_TOGGLE    	    			0b00010000
+#define TIMER_OUTPUT_CLEAR      	   			0b00100000
+#define TIMER_OUTPUT_SET          				0b00110000
 
 #define TIMER_PRE_SCALE_MASK					0b11111000
 #define TIMER_PRE_SCALE_1	                    0b00000001

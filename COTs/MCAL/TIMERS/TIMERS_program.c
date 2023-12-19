@@ -19,6 +19,10 @@ static void (*TIMER0_vdSetCallBack)(void) = NULL;
 static void (*TIMER1_vdSetCallBack)(void) = NULL;
 static void (*TIMER2_vdSetCallBack)(void) = NULL;
 
+void TIMER_vdSetOCR(uint8 Copy_u8OCRValue){
+	OCR2 = Copy_u8OCRValue;
+}
+
 void TIMER_vdInit( TIMER_t *Timer ){
 	switch(Timer->Timer){
 	case TIMER0:
@@ -28,9 +32,22 @@ void TIMER_vdInit( TIMER_t *Timer ){
 
 		// Set Interrupt Enable
 		TIMSK &= TIMER_TIMSK_T0_MASK;
-		if(Timer->TimerMode == TIMER_MODE_CTC){TIMSK |= TIMER_TIMSK_T0_COMARE_IE;}
-		if(Timer->TimerMode == TIMER_MODE_NORMAL){TIMSK |= TIMER_TIMSK_T0_OVERFLOW_IE;}
-		//Set OCR0 to 250
+		if(Timer->TimerMode == TIMER_MODE_CTC){
+			TIMSK |= TIMER_TIMSK_T0_COMARE_IE;
+			TCCR0 &= TIMER_OUTPUT_MASK;
+			TCCR0 |= Timer->OutputMode;
+		}
+		else if(Timer->TimerMode == TIMER_MODE_NORMAL){
+			TIMSK |= TIMER_TIMSK_T0_OVERFLOW_IE;
+		}
+
+		// Set output mode
+		if(Timer->TimerMode == TIMER_MODE_CORRECT_PWM || Timer->TimerMode == TIMER_MODE_FAST_PWM){
+			TCCR0 &= TIMER_OUTPUT_MASK;
+			TCCR0 |= Timer->OutputMode;
+		}
+
+		//Set OCR
 		OCR0 = Timer->OCR;
 
 		//Set Pre-Scaler
@@ -46,9 +63,22 @@ void TIMER_vdInit( TIMER_t *Timer ){
 
 		// Set Interrupt Enable
 		TIMSK &= TIMER_TIMSK_T2_MASK;
-		if(Timer->TimerMode == TIMER_MODE_CTC){TIMSK |= TIMER_TIMSK_T2_COMARE_IE;}
-		if(Timer->TimerMode == TIMER_MODE_NORMAL){TIMSK |= TIMER_TIMSK_T2_OVERFLOW_IE;}
-		//Set OCR0 to 250
+		if(Timer->TimerMode == TIMER_MODE_CTC){
+			TIMSK |= TIMER_TIMSK_T2_COMARE_IE;
+			TCCR2 &= TIMER_OUTPUT_MASK;
+			TCCR2 |= Timer->OutputMode;
+		}
+		else if(Timer->TimerMode == TIMER_MODE_NORMAL){
+			TIMSK |= TIMER_TIMSK_T2_OVERFLOW_IE;
+		}
+
+		// Set output mode
+		if(Timer->TimerMode == TIMER_MODE_CORRECT_PWM || Timer->TimerMode == TIMER_MODE_FAST_PWM){
+			TCCR2 &= TIMER_OUTPUT_MASK;
+			TCCR2 |= Timer->OutputMode;
+		}
+
+		//Set OCR
 		OCR2 = Timer->OCR;
 
 		//Set Pre-Scaler
