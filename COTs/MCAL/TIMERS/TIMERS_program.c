@@ -19,41 +19,41 @@ static void (*TIMER0_vdSetCallBack)(void) = NULL;
 static void (*TIMER1_vdSetCallBack)(void) = NULL;
 static void (*TIMER2_vdSetCallBack)(void) = NULL;
 
-void TIMER_vdInit( uint8 Copy_u8Timer ){
-	switch(Copy_u8Timer){
+void TIMER_vdInit( TIMER_t *Timer ){
+	switch(Timer->Timer){
 	case TIMER0:
-		//Choose CTC mode
-		CLR_BIT(TCCR0, TCCR_WGM0);
-		SET_BIT(TCCR0, TCCR_WGM1);
+		// Set Timer Mode
+		TCCR0 &= TIMER_MODE_MASK;
+		TCCR0 |= Timer->TimerMode;
 
-		//Output Compare 0 Interrupt Enable
-		SET_BIT(TIMSK, TIMSK_OCIE0);
-
+		// Set Interrupt Enable
+		TIMSK &= TIMER_TIMSK_T0_MASK;
+		if(Timer->TimerMode == TIMER_MODE_CTC){TIMSK |= TIMER_TIMSK_T0_COMARE_IE;}
+		if(Timer->TimerMode == TIMER_MODE_NORMAL){TIMSK |= TIMER_TIMSK_T0_OVERFLOW_IE;}
 		//Set OCR0 to 250
-		OCR0 = 250;
+		OCR0 = Timer->OCR;
 
-		//Set Pre-Scaler to divided by 8
-		CLR_BIT(TCCR0, TCCR_CS0);
-		SET_BIT(TCCR0, TCCR_CS1);
-		CLR_BIT(TCCR0, TCCR_CS2);
+		//Set Pre-Scaler
+		TCCR0 &= TIMER_PRE_SCALE_MASK;
+		TCCR0 |= Timer->PreScaler;
 		break;
 	case TIMER1:
 		break;
 	case TIMER2:
-		//Choose CTC mode
-		CLR_BIT(TCCR2, TCCR_WGM0);
-		SET_BIT(TCCR2, TCCR_WGM1);
+		// Set Timer Mode
+		TCCR2 &= TIMER_MODE_MASK;
+		TCCR2 |= Timer->TimerMode;
 
-		//Output Compare 0 Interrupt Enable
-		SET_BIT(TIMSK, TIMSK_OCIE2);
-
+		// Set Interrupt Enable
+		TIMSK &= TIMER_TIMSK_T2_MASK;
+		if(Timer->TimerMode == TIMER_MODE_CTC){TIMSK |= TIMER_TIMSK_T2_COMARE_IE;}
+		if(Timer->TimerMode == TIMER_MODE_NORMAL){TIMSK |= TIMER_TIMSK_T2_OVERFLOW_IE;}
 		//Set OCR0 to 250
-		OCR0 = 250;
+		OCR2 = Timer->OCR;
 
-		//Set Pre-Scaler to divided by 8
-		CLR_BIT(TCCR2, TCCR_CS0);
-		SET_BIT(TCCR2, TCCR_CS1);
-		CLR_BIT(TCCR2, TCCR_CS2);
+		//Set Pre-Scaler
+		TCCR2 &= TIMER_PRE_SCALE_MASK;
+		TCCR2 |= Timer->PreScaler;
 		break;
 	}
 }

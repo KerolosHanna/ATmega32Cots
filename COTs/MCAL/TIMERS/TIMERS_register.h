@@ -22,7 +22,9 @@
 #define TIMSK			*( (volatile uint8 *) 0x59 )	//Timer Mask
 
 #define TIMSK_OCIE0		1								//Output Compare 0 Interrupt Enable
+#define TIMSK_TOIE0		0								//Output Over Flow 0 Interrupt Enable
 #define TIMSK_OCIE2		7								//Output Compare 2 Interrupt Enable
+#define TIMSK_TOIE2		6								//Output Over Flow 0 Interrupt Enable
 
 #define TCCR_WGM0		6								//Waveform Generation Mode bit 0
 #define TCCR_WGM1		3                               //Waveform Generation Mode bit 1
