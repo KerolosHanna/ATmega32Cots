@@ -13,9 +13,9 @@
 #include "GENERIC_FUNC_interface.h"
 
 
-suint32 s32Mapping(suint32 Copy_s23MinInput, suint32 Copy_s23MaxInput, suint32 Copy_s23MinOutput, suint32 Copy_s23MaxOutput, suint32 Copy_s23InputValue){
-	suint32 Local_s32OutputValue;
+f32 s32Mapping(suint32 Copy_s23MinInput, suint32 Copy_s23MaxInput, suint32 Copy_s23MinOutput, suint32 Copy_s23MaxOutput, suint32 Copy_s23InputValue){
+	f32 Local_s32OutputValue;
 
-	Local_s32OutputValue = Copy_s23MaxOutput - (((Copy_s23MaxInput - Copy_s23InputValue)*(Copy_s23MaxOutput-Copy_s23MinOutput))/(Copy_s23MaxInput - Copy_s23MinInput));
+	Local_s32OutputValue = Copy_s23MinOutput + (((Copy_s23InputValue - Copy_s23MinInput)*(Copy_s23MaxOutput - Copy_s23MinOutput))/(Copy_s23MaxInput - Copy_s23MinInput));
 	return Local_s32OutputValue;
 }
