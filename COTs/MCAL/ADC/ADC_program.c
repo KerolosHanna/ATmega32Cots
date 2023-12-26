@@ -37,8 +37,8 @@ void ADC_vdInit(){
 	/*Clear the Resolution bit in ADMUX Also its 1024 Resolution*/
 	ADMUX &= ADC_RESOLUTION_MASK;
 #if		ADC_RESOLUTION == ADC_RESOLUTION_08BIT
-	/*Set the Resolution to 265*/
-	ADMUX |= ADC_RESOLUTION;
+	/*Set the Resolution to 265 (Left Adjust)*/
+	ADMUX |= ADC_RESOLUTION_08BIT;
 #endif
 
 	/*Set Pre-Scaler*/
